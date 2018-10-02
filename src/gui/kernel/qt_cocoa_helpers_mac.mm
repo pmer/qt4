@@ -351,9 +351,9 @@ OSStatus qt_mac_drawCGImage(CGContextRef inContext, const CGRect *inBounds, CGIm
     // Verbatim copy if HIViewDrawCGImage (as shown on Carbon-Dev)
     OSStatus err = noErr;
 
-    require_action(inContext != NULL, InvalidContext, err = paramErr);
-    require_action(inBounds != NULL, InvalidBounds, err = paramErr);
-    require_action(inImage != NULL, InvalidImage, err = paramErr);
+    __Require_Action(inContext != NULL, InvalidContext, err = paramErr);
+    __Require_Action(inBounds != NULL, InvalidBounds, err = paramErr);
+    __Require_Action(inImage != NULL, InvalidImage, err = paramErr);
 
     CGContextSaveGState( inContext );
     CGContextTranslateCTM (inContext, 0, inBounds->origin.y + CGRectGetMaxY(*inBounds));
